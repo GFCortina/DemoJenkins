@@ -25,6 +25,10 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
+tasks.named('sonarqube').configure{
+ dependsOn test
+}
+
 sonarqube {
   properties {
     property "sonar.projectKey", "GFCortina_DemoJenkins"
@@ -33,4 +37,10 @@ sonarqube {
   }
 }
 
-test.finilizedBy jacocoTestReport
+jacocoTestReport {
+    reports{
+     xml.enabled true
+    }
+}
+
+test.finalizedBy jacocoTestReport
