@@ -33,10 +33,4 @@ sonarqube {
   }
 }
 
-jacocoTestReport{
-	reports {
-		xml.enabled true
-	}
-}
-
 test.finilizedBy jacocoTestReport
